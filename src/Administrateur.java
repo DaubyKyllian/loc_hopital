@@ -12,16 +12,19 @@ public class Administrateur {
         Passerelle.afficherDemandeLocation();
 
         int choixAdm = sc.nextInt();
-
+        
         System.out.println("Voulez-vous valider la demande ou non ?");
         System.out.println("1 : Oui");
         System.out.println("2 : Non");
-        int choixAdm2 = sc.nextInt();
-        if (choixAdm2 == 1) {
-            System.out.println("La demande a bien été validé");
-            System.out.println("");
-        } else if (choixAdm2 == 2) {
 
+        int choixAdm2 = sc.nextInt();
+
+        if (choixAdm2 == 1) {
+            Passerelle.valider(choixAdm2);
+            System.out.println("La demande a bien été validé");
+            Passerelle.afficherVehiculeDispo(choixAdm2);
+        } else if (choixAdm2 == 2) {
+            System.out.println("La demande a bien été refusé");
         } else {
             System.out.println("Veuillez choisir un réponse définit.");
         }
