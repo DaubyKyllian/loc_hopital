@@ -9,8 +9,7 @@ public class Administrateur {
 
     public static void afficherDemandeLocation() {
         
-    }
-
-
-
 }
+
+
+
