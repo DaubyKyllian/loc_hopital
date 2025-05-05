@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+import Passerelle.Passerelle;
 public class App {
     public static void afficherMenu(){
         System.out.println("Saisissez votre rôle :"); 
@@ -35,9 +37,9 @@ public class App {
             int choixDemandeur = sc.nextInt();
             
         }else if(choix == 2){
-            System.out.println("Vous êtes administrateur");
-            System.out.println("Choissisez la demande de location que vous voulez traiter");
-            Administrateur.afficherDemandeLocation();
+            
+            Administrateur.menuAdministrateur();
+
         }else{
             System.out.println("Veuillez choisir un réponse définit.");
             afficherMenu();
