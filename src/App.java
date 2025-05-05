@@ -19,6 +19,9 @@ public class App {
     public static void choixDemand(int choixDemandeur){
         System.out.println("");
     }
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------
+*/
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         
