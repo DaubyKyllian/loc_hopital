@@ -20,7 +20,7 @@ public class App {
         
         if(choix == 1){
             System.out.println("Vous êtes demandeur");
-            Demandeur.afficherMenuDemandeur();
+            Demandeur.afficherTypeVehicules();
             int choixDemandeur = sc.nextInt();
 
         }else if(choix == 2){

@@ -1,19 +1,27 @@
+import java.sql.*;
+import java.util.ArrayList;
+import Passerelle.Passerelle;
+
 public class Demandeur {
+    private static Connection conn = Passerelle.connexionBDD();
 
-    public static void afficherMenuDemandeur(){
-        System.out.println("Quel type de véhicule que vous souhaitez :");
-        System.out.println("1 : Longue distance");
-        System.out.println("2 : Courte distance");
-        System.out.println("3 : Electrique");
-        System.out.println("4 : Thermique");
-        System.out.println("5 : Hybrid");
-        
-    
-    }
-    public static void choixDemand(int choixDemandeur){
-        System.out.println("");
-        
-    
-    }
+    public static void afficherTypeVehicules(){
 
+        String query = "SELECT libelle FROM type";
+
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            String type = rs.getString("libelle");
+
+            System.out.println("type de véhicules" + type);
+
+            rs.close();
+            stmt.close();
+
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des demandes de location: " + e.getMessage());
+        }
+    }
 }
