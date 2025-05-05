@@ -33,6 +33,7 @@ public class App {
             System.out.println("Vous êtes demandeur");
             afficherMenuDemandeur();
             int choixDemandeur = sc.nextInt();
+            
         }else if(choix == 2){
             System.out.println("Vous êtes administrateur");
         }else{
