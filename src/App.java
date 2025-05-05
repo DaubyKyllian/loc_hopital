@@ -25,6 +25,8 @@ public class App {
 
         }else if(choix == 2){
             System.out.println("Vous êtes administrateur");
+            System.out.println("Choissisez la demande de location que vous voulez traiter");
+            Administrateur.afficherDemandeLocation();
         }else{
             System.out.println("Veuillez choisir un réponse définit.");
             afficherMenu();
