@@ -36,6 +36,7 @@ public class App {
             
         }else if(choix == 2){
             System.out.println("Vous êtes administrateur");
+            Administrateur.afficherDemandeLocation();
         }else{
             System.out.println("Veuillez choisir un réponse définit.");
             afficherMenu();

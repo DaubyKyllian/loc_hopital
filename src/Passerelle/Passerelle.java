@@ -10,34 +10,35 @@ import java.util.ArrayList;
 import java.util.Base64;
 
 public class Passerelle {
-    
-    public static Connection connexionBDD() { 
-        Connection conn=null;
+
+    public static Connection connexionBDD() {
+        Connection conn = null;
         String urlBDD = "jdbc:postgresql://192.168.1.245:5432/slam2025location_windal";
         String userBDD = "windal";
         String passwdBDD = "windal";
         try {
             conn = DriverManager.getConnection(urlBDD, userBDD, passwdBDD);
-            //System.out.println("-------------------------------\nConnexion à la base de donnée réussi !\n-------------------------------");
+            // System.out.println("-------------------------------\nConnexion à la base de
+            // donnée réussi !\n-------------------------------");
             return conn;
         }
 
-        catch(SQLException e) {
-            System.out.println("-------------------------------\nConnexion à la base de donnée refusée !\n-------------------------------");
+        catch (SQLException e) {
+            System.out.println(
+                    "-------------------------------\nConnexion à la base de donnée refusée !\n-------------------------------");
             System.out.println("Erreur : " + e);
         }
         return conn;
     }
-    
-    public static void deconnexionBDD(Connection conn){
-        if(conn == null){
+
+    public static void deconnexionBDD(Connection conn) {
+        if (conn == null) {
             return;
         }
-        try{
+        try {
             conn.close();
-        }
-        catch(SQLException e) {
+        } catch (SQLException e) {
             System.out.println("Erreur: " + e);
-        } 
-    } 
+        }
+    }
 }
