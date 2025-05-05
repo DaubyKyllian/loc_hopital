@@ -26,7 +26,7 @@ public class App {
             int choixDemandeur = sc.nextInt();
 
         }else if(choix == 2){
-            
+
             Administrateur.menuAdministrateur();
 
         }else{
