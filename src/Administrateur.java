@@ -11,7 +11,7 @@ public class Administrateur {
         System.out.println("Choissisez la demande de location que vous voulez traiter");
         Passerelle.afficherDemandeLocation();
 
-        int choixAdm = sc.nextInt();
+        int choixLoc = sc.nextInt();
         
         System.out.println("Voulez-vous valider la demande ou non ?");
         System.out.println("1 : Oui");
@@ -20,9 +20,10 @@ public class Administrateur {
         int choixAdm2 = sc.nextInt();
 
         if (choixAdm2 == 1) {
-            Passerelle.valider(choixAdm2);
+            Passerelle.valider(choixLoc);
+        
             System.out.println("La demande a bien été validé");
-            Passerelle.afficherVehiculeDispo(choixAdm2);
+            Passerelle.afficherVehiculeDispo(choixLoc);
         } else if (choixAdm2 == 2) {
             System.out.println("La demande a bien été refusé");
         } else {
