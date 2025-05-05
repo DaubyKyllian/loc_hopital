@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 
 public class Passerelle {
+    private static Connection conn = connexionBDD();
 
     public static Connection connexionBDD() {
         Connection conn = null;
@@ -41,4 +42,32 @@ public class Passerelle {
             System.out.println("Erreur: " + e);
         }
     }
+
+    public static void afficherDemandeLocation() {
+
+        String query = "SELECT * FROM location where valide = false";
+
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+
+            while (rs.next()) {
+                int id = rs.getInt("idloc");
+                int idUtilisateur = rs.getInt("idperso");
+                Date dateDebut = rs.getDate("datedebut");
+                Boolean statut = rs.getBoolean("valide");
+
+                System.out.println("ID: " + id +
+                        ", Utilisateur: " + idUtilisateur +
+                        ", Du: " + dateDebut +
+                        ", validé ? : " + statut);
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.err.println("Erreur lors de l'affichage des demandes de location: " + e.getMessage());
+        }
+    }
+
 }

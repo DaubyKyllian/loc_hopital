@@ -1,39 +1,29 @@
-import java.sql.*;
-import java.util.ArrayList;
+import java.util.Scanner;
+
 import Passerelle.Passerelle;
 
 public class Administrateur {
-    private static Connection conn=Passerelle.connexionBDD();
 
-    public static void afficherDemandeLocation() {
+    public static void menuAdministrateur() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Vous êtes administrateur");
 
-    String query = "SELECT * FROM location where valide = false";
-    
-    try {
-        Statement stmt = conn.createStatement();
-        ResultSet rs = stmt.executeQuery(query);
+        System.out.println("Choissisez la demande de location que vous voulez traiter");
+        Passerelle.afficherDemandeLocation();
 
-        while (rs.next()) {
-            int id = rs.getInt("idloc");
-            int idUtilisateur = rs.getInt("idperso");
-            int idVehicule = rs.getInt("idvehicule");
-            Date dateDebut = rs.getDate("datedebut");
-            Boolean statut = rs.getBoolean("valide");
+        int choixAdm = sc.nextInt();
 
-            System.out.println("ID: " + id +
-                               ", Utilisateur: " + idUtilisateur +
-                               ", Véhicule: " + idVehicule +
-                               ", Du: " + dateDebut +
-                               ", validé ? : " + statut);
+        System.out.println("Voulez-vous valider la demande ou non ?");
+        System.out.println("1 : Oui");
+        System.out.println("2 : Non");
+        int choixAdm2 = sc.nextInt();
+        if (choixAdm2 == 1) {
+            System.out.println("La demande a bien été validé");
+            System.out.println("");
+        } else if (choixAdm2 == 2) {
+
+        } else {
+            System.out.println("Veuillez choisir un réponse définit.");
         }
-
-        rs.close();
-        stmt.close();
-    } catch (SQLException e) {
-        System.err.println("Erreur lors de l'affichage des demandes de location: " + e.getMessage());
     }
 }
-
-
-
-
